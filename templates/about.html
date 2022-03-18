@@ -1,0 +1,32 @@
+{% include "header.html" %}
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url({{ url_for('static', filename='img/about-bg.jpg')}})">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>About Me</h1>
+            <span class="subheading">This is what I do.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div style="text-align: center" class="container">
+    <img src="/static/img/profileCropped.png">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <h3>Hi, I'm Jonathan</h3>
+        <p>Currently, I am a student at North Carolina A & T State University majoring in Computer Engineering. I like games, sports, exercising, baking, and most of all... eating! I started this blog as a fun project to work on my coding skills. What you see here is built with a combination of HTML5, CSS, and Javascript. Behind the scenes, pages are powered by Python. I had to learn quite a bit about Flask, Forms, and SQLAlchemy during this project.</p>
+        <p>My girlfriend (Tee) and I love to travel. Over our years of vacationing together we've had several memorable food experiences. This blog mostly focuses on chicken, but we'll cover places that are more than "chicken spots". I've been told I have a good sense of humor so hopefully that comes off with our reviews. To comment and read posts, feel free to make an account. Don't worry, your password is secured and I won't be emailing you. I hope you enjoy enjoy our trip down <b>The <span style="color:#d9a109">Golden</span> Breaded Road</b></p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  {% include "footer.html" %}
