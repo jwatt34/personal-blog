@@ -12,14 +12,16 @@ from functools import wraps
 from datetime import datetime
 import smtplib
 import os
+from dotenv import load_dotenv
 
 # email environmental variables
-from_email = os.environ['FROM_EMAIL']
-password = os.environ['PASSWORD']
-to_email = os.environ['TO_EMAIL']
+load_dotenv('environment.env')
+from_email = os.getenv('FROM_EMAIL')
+password = os.getenv('PASSWORD')
+to_email = os.getenv('TO_EMAIL')
 # initialize flask, ckeditor
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ['SECRET_KEY']
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 ckeditor = CKEditor(app)
 Bootstrap(app)
 year = datetime.now().year
@@ -123,13 +125,10 @@ def get_all_posts():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    print('register called')
     form = RegisterForm()
     if form.validate_on_submit():
-        print('registration')
         user = User.query.filter_by(email=form.email.data).first()
         if user:
-            print('user found')
             flash('This email is already registered, please log in.')
             return redirect(url_for('login'))
         secured_password = generate_password_hash(password=form.password.data,
