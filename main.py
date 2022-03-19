@@ -74,7 +74,7 @@ def signin_required(func):
 
 
 # connects to DB
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///chicken-blog.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///chicken-blog.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
