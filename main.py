@@ -15,7 +15,7 @@ import os
 from dotenv import load_dotenv
 
 # email environmental variables
-load_dotenv('environment.env')
+load_dotenv('.env')
 from_email = os.getenv('FROM_EMAIL')
 password = os.getenv('PASSWORD')
 to_email = os.getenv('TO_EMAIL')
